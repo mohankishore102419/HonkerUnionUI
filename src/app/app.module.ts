@@ -7,7 +7,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { EmployeeListComponent } from './employees/employee-list.component';
 import { FormsModule} from '@angular/forms';
-import { EmployeeService } from './employees/shared/employee.service';
+import { EmployeeService } from './shared/employee.service';
 import { EmergencyMedicalInfoComponent } from './emergency-medical-info/emergency-medical-info.component'
 
 @NgModule({

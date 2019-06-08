@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from './shared/employee.service'
-import { Employee } from './shared/employee.model';
+import { EmployeeService } from '../shared/employee.service'
+import { Employee } from '../shared/employee.model';
 
 @Component({
   selector: 'app-employee-list',
@@ -19,7 +19,7 @@ export class EmployeeListComponent implements OnInit {
   }
  
   showForEdit(emp: Employee) {
-    this.employeeService.selectedEmployee = Object.assign({}, emp);;
+    this.employeeService.selectedEmployee = Object.assign({}, emp);
   }
  
  

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { EmployeeService } from './shared/employee.service';
+import { EmployeeService } from '../shared/employee.service';
 
 @Component({
   selector: 'app-employee',

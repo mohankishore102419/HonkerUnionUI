@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 // Import HttpClient service
 import { HttpClient,HttpErrorResponse,HttpHeaders  } from '@angular/common/http';
-import { Employee } from './employee.model';
+import { Employee, EmergencyUser, TypeOfTreatment } from './employee.model';
 import {Observable,throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -10,7 +10,10 @@ import { catchError } from 'rxjs/operators';
 })
 export class EmployeeService {
   selectedEmployee : Employee;
+  selectedUser: EmergencyUser;
+  typeOfTreatment: TypeOfTreatment;
   employeeList : Employee[];
+  typeOfTreatmentList: TypeOfTreatment[];
   baseUrl = 'http://localhost:3000/employees';
   constructor(private httpClient: HttpClient) {
   }
@@ -29,9 +32,25 @@ export class EmployeeService {
     return this.httpClient.get<Employee[]>(this.baseUrl);
   }
 
+  getTypeOfTreatmentList(): Observable<TypeOfTreatment[]> {
+    return this.httpClient.get<TypeOfTreatment[]>("http://localhost:3000/typeOfTreatments");
+  }
+
+
   postEmployee(employee : Employee) : Observable<void>{
     var data = JSON.stringify(employee);
     return this.httpClient.post<void>(this.baseUrl,
+      data, {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json'
+                })
+            })
+            .pipe(catchError(this.handleError));
+  }
+
+  postUser(user : EmergencyUser) : Observable<void>{
+    var data = JSON.stringify(user);
+    return this.httpClient.post<void>("http://localhost:3000/typeOfTreatments",
       data, {
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json'

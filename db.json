@@ -40,5 +40,35 @@
       "empCode": "10",
       "office": "bwtc"
     }
+  ],
+  "typeOfTreatments": [
+    {
+      "id": 1,
+      "name": "GENERAL"
+    },
+    {
+      "id": 2,
+      "name": "PEDIATRIC"
+    },
+    {
+      "id": 3,
+      "name": "CARDIOLOGY"
+    },
+    {
+      "id": 4,
+      "name": "NEUROLOGY"
+    },
+    {
+      "id": 5,
+      "name": "STROKE"
+    },
+    {
+      "id": 6,
+      "name": "Divyanshu Sinha",
+      "age": "23",
+      "typeOfTreatment": "5",
+      "history": "Heart diesesd with dick failure",
+      "contactNumber": "999999999"
+    }
   ]
 }

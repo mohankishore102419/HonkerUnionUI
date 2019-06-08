@@ -1,3 +1,39 @@
-<p>
-  emergency-medical-info works!
-</p>
+<form class="emp-form" #emergencyForm="ngForm" (ngSubmit)="onSubmit(emergencyForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="emergencyService.selectedUser.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="emergencyService.selectedUser.name"
+        placeholder="Name" required>
+      <div class="validation-error" *ngIf="name.invalid && name.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="age" #age="ngModel" [(ngModel)]="emergencyService.selectedUser.age" placeholder="age"
+        required>
+      <div class="validation-error" *ngIf="age.invalid && age.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+      <select class="form-control" name="typeOfTreatment" #typeOfTreatment="ngModel" [(ngModel)]="emergencyService.selectedUser.typeOfTreatment"
+      ><option [value]="null" selected>Select Type of Treatment</option>
+      <option *ngFor="let pow of emergencyService.typeOfTreatmentList" [value]="pow.id">{{pow.name}}</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="history" #history="ngModel" [(ngModel)]="emergencyService.selectedUser.history" placeholder="history">
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="contactNumber" #contactNumber="ngModel" [(ngModel)]="emergencyService.selectedUser.contactNumber" placeholder="contact Number">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!emergencyForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(emergencyForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>
