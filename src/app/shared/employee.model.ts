@@ -14,6 +14,8 @@ export class EmergencyUser {
     typeOfTreatment:string;
     history:string;
     contactNumber:string;
+    lat:string;
+    lng:string;
 }
 
 export class TypeOfTreatment {

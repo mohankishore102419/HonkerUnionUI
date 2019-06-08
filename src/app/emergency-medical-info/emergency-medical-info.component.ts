@@ -10,12 +10,8 @@ import { TypeOfTreatment } from '../shared/employee.model';
   styleUrls: ['./emergency-medical-info.component.css']
 })
 export class EmergencyMedicalInfoComponent implements OnInit {
-  typeOfTreatmentList: [
-    { name: "GENERAL", id: 1 }, 
-    { name: "PEDIATRIC", id: 2 },
-    { name: "CARDIOLOGY", id: 3 },
-    { name: "NEUROLOGY", id: 4 },
-    { name: "STROKE", id: 5 }];
+  lat:any;
+  lng:any;
   constructor(private route: ActivatedRoute,
     private router: Router,
     private emergencyService: EmployeeService) { }
@@ -38,13 +34,24 @@ export class EmergencyMedicalInfoComponent implements OnInit {
       age: '',
       typeOfTreatment: 'null',
       history: '',
-      contactNumber: ''
+      contactNumber: '',
+      lat: '',
+      lng:''
+    }
+    if (navigator)
+    {
+    navigator.geolocation.getCurrentPosition( pos => {
+        this.lng = +pos.coords.longitude;
+        this.lat = +pos.coords.latitude;
+      });
     }
   }
 
   onSubmit(form: NgForm) {
     debugger;
     if (form.value.id == null) {
+      form.value.lat = this.lat;
+      form.value.lng = this.lng;
       this.emergencyService.postUser(form.value)
       .subscribe(data => {
         this.resetForm(form);
