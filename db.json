@@ -1,0 +1,44 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Mohan",
+      "lastName": "Kishore",
+      "empCode": "5",
+      "position": "SE",
+      "office": "BWTC"
+    },
+    {
+      "id": 2,
+      "firstName": "Kamal Kumar",
+      "lastName": "Lalwani",
+      "position": "SE",
+      "empCode": "4",
+      "office": "BWTC"
+    },
+    {
+      "id": 4,
+      "firstName": "ravi",
+      "lastName": "Lalwani",
+      "position": "SE",
+      "empCode": "12345",
+      "office": "bwtc"
+    },
+    {
+      "id": 5,
+      "firstName": "Pawan ",
+      "lastName": "Kalyan",
+      "position": "Actor",
+      "empCode": "1",
+      "office": "hyderabad"
+    },
+    {
+      "id": 6,
+      "firstName": "test",
+      "lastName": "user",
+      "position": "tester",
+      "empCode": "10",
+      "office": "bwtc"
+    }
+  ]
+}
