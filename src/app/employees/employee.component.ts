@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeService } from '../shared/employee.service';
+import { } from '@types/googlemaps';
 
 @Component({
   selector: 'app-employee',
@@ -8,12 +9,23 @@ import { EmployeeService } from '../shared/employee.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-
+  
+  lat:any;
+  lng:any;
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.resetForm();
+    if (navigator)
+    {
+    navigator.geolocation.getCurrentPosition( pos => {
+        this.lng = +pos.coords.longitude;
+        this.lat = +pos.coords.latitude;
+      });
+    }
   }
+
+  
  
   resetForm(form?: NgForm) {
     if (form != null)

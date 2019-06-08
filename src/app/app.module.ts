@@ -8,7 +8,9 @@ import { EmployeeComponent } from './employees/employee.component';
 import { EmployeeListComponent } from './employees/employee-list.component';
 import { FormsModule} from '@angular/forms';
 import { EmployeeService } from './shared/employee.service';
-import { EmergencyMedicalInfoComponent } from './emergency-medical-info/emergency-medical-info.component'
+import { EmergencyMedicalInfoComponent } from './emergency-medical-info/emergency-medical-info.component';
+import { AgmCoreModule } from '@agm/core'; 
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { EmergencyMedicalInfoComponent } from './emergency-medical-info/emergenc
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC4jCPqEN7omSND0XblFzfDyRqStI05xxU'
+    })
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
